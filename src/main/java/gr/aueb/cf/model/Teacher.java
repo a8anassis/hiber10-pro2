@@ -56,5 +56,18 @@ public class Teacher {
         return Collections.unmodifiableSet(courses);
     }
 
+    public void addCourse(Course course) {
+        courses.add(course);
+        course.getTeachers().add(this);
+    }
 
+    public void removeCourse(Course course) {
+        courses.remove(course);
+        course.getTeachers().remove(this);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d %s %s", id, firstname, lastname);
+    }
 }
